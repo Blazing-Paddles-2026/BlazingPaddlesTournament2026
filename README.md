@@ -4,7 +4,8 @@ Static landing site for the 2026 Round Rock Fire Foundation pickleball tournamen
 
 ## Files
 
-- `index.html` — single-page site (Home, Event, Players, Sponsor, Raffle, Volunteer, Location, Register, FAQ).
+- `index.html` — main tournament site (Home, Event, Players, Volunteer, Location, Registration, FAQ).
+- `sponsor.html` — dedicated sponsor and raffle-prize donation information page.
 - `styles.css` — design system (dark default + light mode).
 - `script.js` — sticky header, theme toggle, mobile menu, footer year.
 - `assets/images/` — supplied artwork (logo, flyer, reverse flyer).
@@ -22,8 +23,8 @@ Search and replace these strings in `index.html`:
 | Location            | `Tejas Pickleball Club` / `Georgetown, TX 78626`                   |
 | RRFF email          | `info@roundrockfirefoundation.org`                                 |
 | RRFF phone          | `(512) 967-1007`                                                   |
-| Sponsor levels      | "Sponsor" section — `$500 / $1,000 / $2,500 / $5,000` context      |
-| Raffle details      | "Raffle" section — prize goals, ticket rules, and drawings         |
+| Sponsor levels      | `sponsor.html` only                                                |
+| Raffle details      | `sponsor.html` only for prize donations; main page stays general   |
 | TBD copy            | Final bracket start times, entry fee, registration link            |
 | Registration link   | Registration opens June 1 — add the official URL when it is live. |
 
@@ -33,9 +34,11 @@ JSON-LD `SportsEvent` schema is in the `<head>` — keep `startDate` / `endDate`
 
 - Public registration opens June 1. The site should not display a “Register Now” CTA or team list until the official registration URL and team details are ready.
 - Financial goals from the committee dashboard should not appear on the public tournament page.
+- Sponsor tiers, sponsor-packet details, and raffle-prize donation details belong on `sponsor.html`, not the main public tournament page.
+- Raffle prizes can be donated anytime before the tournament.
 - Final bracket start times, entry fee, sponsor form/donation URL, EIN/tax language, and public registration link are still open items; do not invent them.
-- Sponsor, volunteer, and raffle CTAs use prefilled `mailto:info@roundrockfirefoundation.org` links because no confirmed public form or registration URL was supplied.
-- "Learn more" sponsor link points to `https://www.roundrockfirefoundation.org/pickleballsponsor` and the general pickleball page to `https://www.roundrockfirefoundation.org/pickleball`.
+- Sponsor page and volunteer CTAs use prefilled `mailto:info@roundrockfirefoundation.org` links where a confirmed public form is not supplied.
+- Sponsor form links point to `https://www.roundrockfirefoundation.org/pickleballsponsor`.
 - The old November 14 language in internal outreach scripts should not be used on the public site; the public date is Saturday, October 10, 2026.
 
 ## Quality
