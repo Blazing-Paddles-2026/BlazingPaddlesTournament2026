@@ -145,6 +145,19 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 }
 .brand:hover { color: var(--text); }
 .brand-mark { flex: none; }
+.brand-mark-img {
+  display: block;
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid color-mix(in oklab, var(--primary) 45%, var(--border));
+  box-shadow: 0 0 18px color-mix(in oklab, var(--primary) 20%, transparent);
+}
+.footer-brand .brand-mark-img {
+  width: 32px;
+  height: 32px;
+}
 .brand-text { display: flex; flex-direction: column; line-height: 1; }
 .brand-line-1 {
   font-family: var(--font-display);
