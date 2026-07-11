@@ -630,16 +630,35 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 /* Sold-out sponsor tier: dim + desaturate the card, keep it legible, and swap
    the ribbon to a neutral "Sold" chip so remaining tiers still read as active. */
 .sponsor-card-sold {
-  border-color: var(--border) !important;
-  background: var(--surface) !important;
-  box-shadow: none !important;
-  opacity: 0.62;
-  filter: grayscale(0.55);
+  overflow: hidden; /* keep the diagonal stamp clipped to the card */
 }
 .sponsor-card-sold .sponsor-price {
   color: var(--text-faint);
   text-decoration: line-through;
   text-decoration-thickness: 2px;
+}
+
+/* Large diagonal "SOLD" rubber-stamp across the Presenting Sponsor card,
+   matching the sponsor book. Orange, outlined, rotated, centered. */
+.sold-stamp {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-14deg);
+  z-index: 3;
+  font-family: var(--font-display, sans-serif);
+  font-weight: 800;
+  font-size: clamp(3.5rem, 3rem + 3vw, 5.5rem);
+  letter-spacing: 0.06em;
+  color: var(--primary);
+  padding: 0.08em 0.35em;
+  border: 6px solid var(--primary);
+  border-radius: 14px;
+  text-transform: uppercase;
+  pointer-events: none;
+  opacity: 0.92;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.35);
 }
 .sponsor-status {
   margin: var(--space-3) 0 0;
@@ -647,6 +666,31 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--text);
+}
+
+/* Presenting sponsor (Kalahari) logo inside the sold card. Keep it crisp and
+   full-opacity even though the card itself is dimmed/desaturated as "sold". */
+.presenting-sponsor-logo {
+  margin: var(--space-4) 0 0;
+  padding: var(--space-4);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--r-md, 12px);
+}
+.presenting-sponsor-logo img {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  margin: 0 auto;
+  /* counteract the card's grayscale/opacity so the sponsor logo stays vivid */
+  filter: grayscale(0) !important;
+  opacity: 1;
+}
+.sponsor-card-sold { }
+.sponsor-card-sold .presenting-sponsor-logo,
+.sponsor-card-sold .presenting-sponsor-logo img {
+  filter: none !important;
 }
 .ribbon-sold {
   background: #b9c0c9;
