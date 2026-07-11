@@ -58,9 +58,12 @@
   --surface-2:    #221d1a;
   --border:       #312a26;
   --border-strong:#4a3f37;
-  --text:         #f6efe1;
-  --text-muted:   #b6a99a;
-  --text-faint:   #7a6f63;
+  /* All non-orange text is white per request. Muted/faint tokens are kept as
+     slightly translucent white so secondary text still reads as secondary
+     without introducing a non-white hue. */
+  --text:         #ffffff;
+  --text-muted:   rgba(255,255,255,0.82);
+  --text-faint:   rgba(255,255,255,0.62);
   --primary:      var(--flame-500);
   --primary-hover:var(--flame-400);
   --on-primary:   #0a0907;
@@ -683,6 +686,35 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   content: ""; position: absolute;
   left: 0; top: 9px; width: 12px; height: 2px;
   background: var(--primary);
+}
+
+/* "Includes all X benefits, plus:" intro line above each perk list */
+.sponsor-includes {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Nested sub-benefits (e.g. Presenting Sponsor's year-round recognition) */
+.sponsor-subperks {
+  list-style: none;
+  margin: var(--space-2) 0 0;
+  padding: 0 0 0 4px;
+  display: flex; flex-direction: column; gap: var(--space-1);
+}
+.sponsor-subperks li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+}
+.sponsor-subperks li::before {
+  content: ""; position: absolute;
+  left: 0; top: 8px; width: 6px; height: 6px;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  background: transparent;
 }
 
 .cta-row {
