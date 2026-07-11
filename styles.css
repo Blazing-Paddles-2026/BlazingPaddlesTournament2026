@@ -607,6 +607,32 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   display: flex; flex-direction: column; gap: var(--space-5);
 }
 .sponsor-card-mid { border-color: var(--border-strong); }
+
+/* Per-tier CTA anchored to the bottom of each card. margin-top:auto pushes it
+   down so shorter cards fill their height and align with the tall Presenting
+   card instead of leaving an empty gap. */
+.sponsor-cta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--primary) 55%, var(--border));
+  background: color-mix(in oklab, var(--primary) 12%, transparent);
+  color: var(--text);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  text-align: center;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+.sponsor-cta:hover {
+  background: color-mix(in oklab, var(--primary) 22%, transparent);
+  border-color: var(--primary);
+  color: #fff;
+  transform: translateY(-1px);
+}
 .sponsor-card-top {
   border: 1px solid color-mix(in oklab, var(--primary) 60%, var(--border));
   background:
