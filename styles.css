@@ -608,6 +608,14 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 }
 .sponsor-card-mid { border-color: var(--border-strong); }
 
+/* On the shorter (available) tiers, vertically center the perks block in the
+   leftover space so the empty gap is split evenly above and below rather than
+   all collecting between the list and the bottom CTA. Scoped via :has() to
+   cards that have a CTA, so the full Presenting card is unaffected. */
+.sponsor-card:has(.sponsor-cta) .sponsor-includes {
+  margin-top: auto;
+}
+
 /* Per-tier CTA anchored to the bottom of each card. margin-top:auto pushes it
    down so shorter cards fill their height and align with the tall Presenting
    card instead of leaving an empty gap. */
