@@ -393,7 +393,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   filter: blur(40px);
   z-index: -1;
 }
-.hero-art img {
+.hero-art > img {
   width: 100%;
   border-radius: var(--r-xl);
   border: 1px solid var(--border-strong);
@@ -401,7 +401,7 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   transform: rotate(-1.5deg);
   transition: transform .6s cubic-bezier(.16,1,.3,1);
 }
-.hero-art:hover img { transform: rotate(0deg); }
+.hero-art:hover > img { transform: rotate(0deg); }
 
 /* ---------------- Strip / Marquee ---------------- */
 .strip {
@@ -608,6 +608,15 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 }
 .sponsor-card-mid { border-color: var(--border-strong); }
 
+/* One-line tier descriptor under the price */
+.sponsor-tagline {
+  margin: calc(var(--space-2) * -1) 0 0;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
+}
+
 /* On the shorter (available) tiers, vertically center the perks block in the
    leftover space so the empty gap is split evenly above and below rather than
    all collecting between the list and the bottom CTA. Scoped via :has() to
@@ -670,6 +679,27 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   color: var(--text-faint);
   text-decoration: line-through;
   text-decoration-thickness: 2px;
+}
+
+/* Hero "Presented by Kalahari" recognition under the tournament logo */
+.presented-by {
+  margin-top: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+.presented-by-label {
+  font-size: var(--text-xs, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.presented-by-logo {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
 }
 
 /* Large diagonal "SOLD" rubber-stamp across the Presenting Sponsor card,
