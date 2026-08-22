@@ -760,6 +760,37 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   background: #b9c0c9;
   color: #12151a;
 }
+
+/* Confirmed sponsor logo grid ("Thank You to Our Sponsors").
+   Tiles are always white so logos designed on white/transparent
+   backgrounds stay legible in both light and dark theme. */
+.sponsor-logos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-5);
+}
+.sponsor-logo-tile {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg, 16px);
+  padding: var(--space-5);
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.sponsor-logo-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.sponsor-logo-tile img {
+  max-width: 100%;
+  max-height: 96px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
 .sponsor-rank {
   font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
   color: var(--text-faint);
