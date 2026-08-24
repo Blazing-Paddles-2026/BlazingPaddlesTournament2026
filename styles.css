@@ -791,6 +791,27 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   height: auto;
   object-fit: contain;
 }
+.sponsor-logo-tile-text {
+  flex-direction: column;
+  text-align: center;
+}
+.sponsor-logo-tile-name {
+  margin: 0;
+  font-family: var(--font-display, sans-serif);
+  font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1.35;
+  color: #12151a;
+}
+.sponsor-logo-tile-name span {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #4a4f57;
+}
 .sponsor-rank {
   font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
   color: var(--text-faint);
