@@ -812,6 +812,47 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   text-transform: uppercase;
   color: #4a4f57;
 }
+
+/* Featured sponsor tile: for tiered sponsors (e.g. Chief Sponsor) highlighted
+   in the flat "Our Sponsors" logo wall. Bigger footprint, glowing accent
+   border, and a tier badge so paid tiers stand out from plain thank-you logos. */
+.sponsor-logo-tile-featured {
+  grid-column: span 2;
+  position: relative;
+  min-height: 180px;
+  padding: var(--space-6) var(--space-5);
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--primary) 35%, transparent), 0 8px 28px color-mix(in oklab, var(--primary) 25%, transparent);
+  background: linear-gradient(180deg, #ffffff, color-mix(in oklab, var(--primary) 6%, #ffffff));
+}
+.sponsor-logo-tile-featured:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--primary) 50%, transparent), 0 12px 34px color-mix(in oklab, var(--primary) 35%, transparent);
+}
+.sponsor-logo-tile-featured img {
+  max-height: 130px;
+}
+.sponsor-logo-tile-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: var(--on-primary, #fff);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+}
+@media (max-width: 640px) {
+  .sponsor-logo-tile-featured {
+    grid-column: span 1;
+  }
+}
 .sponsor-rank {
   font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
   color: var(--text-faint);
