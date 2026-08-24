@@ -597,14 +597,14 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 }
 
 /* Sponsor */
-.sponsor-grid { grid-template-columns: repeat(4, minmax(0,1fr)); align-items: stretch; }
+.sponsor-grid { grid-template-columns: repeat(4, minmax(0,1fr)); align-items: stretch; gap: var(--space-4); }
 .sponsor-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  padding: var(--space-8);
+  border-radius: var(--r-md, 10px);
+  padding: var(--space-5);
   position: relative;
-  display: flex; flex-direction: column; gap: var(--space-5);
+  display: flex; flex-direction: column; gap: var(--space-3);
 }
 .sponsor-card-mid { border-color: var(--border-strong); }
 
@@ -634,46 +634,39 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 12px 18px;
-  border-radius: 999px;
-  border: 1px solid color-mix(in oklab, var(--primary) 55%, var(--border));
-  background: color-mix(in oklab, var(--primary) 12%, transparent);
+  padding: 10px 16px;
+  border-radius: var(--r-sm, 6px);
+  border: 1px solid var(--border-strong);
+  background: transparent;
   color: var(--text);
-  font-weight: 700;
+  font-weight: 600;
   font-size: var(--text-sm);
   text-align: center;
-  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
 .sponsor-cta:hover {
-  background: color-mix(in oklab, var(--primary) 22%, transparent);
+  background: color-mix(in oklab, var(--primary) 10%, transparent);
   border-color: var(--primary);
-  color: #fff;
-  transform: translateY(-1px);
+  color: var(--text);
 }
 .sponsor-card-top {
-  border: 1px solid color-mix(in oklab, var(--primary) 60%, var(--border));
-  background:
-    linear-gradient(180deg, color-mix(in oklab, var(--primary) 10%, var(--surface)), var(--surface));
-  box-shadow: var(--shadow-md);
+  border: 1px solid color-mix(in oklab, var(--primary) 45%, var(--border));
 }
 .sponsor-card-presenting {
-  border: 2px solid var(--primary);
-  background:
-    linear-gradient(180deg, color-mix(in oklab, var(--primary) 18%, var(--surface)), var(--surface));
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--primary) 30%, transparent), var(--shadow-md);
+  border: 1px solid var(--primary);
 }
 .ribbon {
-  position: absolute; top: 16px; right: 16px;
-  font-size: 10px; font-weight: 800;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  padding: 5px 10px; border-radius: 999px;
+  position: absolute; top: 14px; right: 14px;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 4px 9px; border-radius: var(--r-sm, 6px);
   background: var(--primary); color: var(--on-primary);
 }
 
-/* Sold-out sponsor tier: dim + desaturate the card, keep it legible, and swap
-   the ribbon to a neutral "Sold" chip so remaining tiers still read as active. */
+/* Sold-out sponsor tier: dim + desaturate the card, keep it legible, and mark
+   it with a small corner tag rather than a large diagonal stamp. */
 .sponsor-card-sold {
-  overflow: hidden; /* keep the diagonal stamp clipped to the card */
+  overflow: hidden;
 }
 .sponsor-card-sold .sponsor-price {
   color: var(--text-faint);
@@ -702,44 +695,40 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   height: auto;
 }
 
-/* Large diagonal "SOLD" rubber-stamp across the Presenting Sponsor card,
-   matching the sponsor book. Orange, outlined, rotated, centered. */
+/* Small, sharp "Sold" corner tag for filled sponsor tiers — a plain label
+   rather than a large decorative stamp, to keep the cards feeling clean. */
 .sold-stamp {
   position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-14deg);
+  top: 14px;
+  right: 14px;
   z-index: 3;
-  font-family: var(--font-display, sans-serif);
-  font-weight: 800;
-  font-size: clamp(3.5rem, 3rem + 3vw, 5.5rem);
-  letter-spacing: 0.06em;
-  color: var(--primary);
-  padding: 0.08em 0.35em;
-  border: 6px solid var(--primary);
-  border-radius: 14px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--on-primary, #fff);
+  padding: 4px 9px;
+  background: var(--primary);
+  border-radius: var(--r-sm, 6px);
   text-transform: uppercase;
   pointer-events: none;
-  opacity: 0.92;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
-  box-shadow: 0 2px 16px rgba(0,0,0,0.35);
 }
 .sponsor-status {
-  margin: var(--space-3) 0 0;
+  margin: var(--space-2) 0 0;
   font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--text);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--text-muted);
 }
 
 /* Presenting sponsor (Kalahari) logo inside the sold card. Keep it crisp and
    full-opacity even though the card itself is dimmed/desaturated as "sold". */
 .presenting-sponsor-logo {
-  margin: var(--space-4) 0 0;
-  padding: var(--space-4);
+  margin: var(--space-3) 0 0;
+  padding: var(--space-3);
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.10);
-  border-radius: var(--r-md, 12px);
+  border-radius: var(--r-sm, 8px);
 }
 .presenting-sponsor-logo img {
   display: block;
@@ -854,39 +843,41 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   }
 }
 .sponsor-rank {
-  font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--text-faint);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
   display: inline-block;
 }
 .sponsor-head h3 {
-  font-family: var(--font-display);
-  text-transform: uppercase;
-  font-size: 2rem;
+  font-family: inherit;
+  text-transform: none;
+  font-size: 1.2rem;
+  font-weight: 700;
   margin: 0;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
 }
 .sponsor-price {
-  font-family: var(--font-display);
-  font-size: 2.25rem;
+  font-family: inherit;
+  font-size: 1.5rem;
   margin: var(--space-1) 0 0;
-  color: var(--primary);
+  color: var(--text);
   font-weight: 700;
 }
 .sponsor-perks {
   list-style: none; padding: 0; margin: 0;
-  display: flex; flex-direction: column; gap: var(--space-2);
+  display: flex; flex-direction: column; gap: var(--space-1);
 }
 .sponsor-perks li {
   position: relative;
-  padding-left: 24px;
+  padding-left: 18px;
   color: var(--text-muted);
-  font-size: var(--text-sm);
+  font-size: 0.85rem;
+  line-height: 1.4;
 }
 .sponsor-perks li::before {
   content: ""; position: absolute;
-  left: 0; top: 9px; width: 12px; height: 2px;
-  background: var(--primary);
+  left: 0; top: 9px; width: 8px; height: 1px;
+  background: var(--text-faint);
 }
 
 /* "Includes all X benefits, plus:" intro line above each perk list */
