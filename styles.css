@@ -842,6 +842,23 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
     grid-column: span 1;
   }
 }
+/* Plain (non-featured) tile with a tier label below the logo, e.g. Firefighter
+   or Lieutenant sponsors in the flat logo wall. */
+.sponsor-logo-tile-tiered {
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.sponsor-logo-tile-tier {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: color-mix(in oklab, var(--primary) 10%, #ffffff);
+  padding: 5px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
 .sponsor-rank {
   font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--text-faint);
