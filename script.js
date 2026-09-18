@@ -45,3 +45,28 @@
     });
   }
 })();
+
+/* Persistent floating Register CTA — visible once past the hero button */
+(function () {
+  var pill = document.getElementById('floatingRegister');
+  if (!pill) return;
+  var hero = document.querySelector('.hero-ctas');
+  var footer = document.querySelector('.site-footer') || document.querySelector('footer');
+
+  function update() {
+    // Show early so short (phone) viewports are never left without a CTA
+    var heroPast = hero ? (hero.getBoundingClientRect().bottom < 0) : false;
+    var past = heroPast || window.scrollY > 260;
+    // Hide when the footer's own Register button is already on screen
+    var footerVisible = false;
+    if (footer) {
+      var fr = footer.getBoundingClientRect();
+      footerVisible = fr.top < window.innerHeight - 80;
+    }
+    pill.classList.toggle('is-visible', past && !footerVisible);
+  }
+
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+})();

@@ -361,11 +361,11 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   color: var(--text-faint);
 }
 .meta-value {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  line-height: 1.1;
-  font-weight: 600;
-  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.45;
+  font-weight: 700;
+  letter-spacing: 0.005em;
   color: var(--text);
 }
 .hero-ctas {
@@ -536,11 +536,11 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   color: var(--text-faint);
 }
 .fact-value {
-  font-family: var(--font-display);
-  text-transform: uppercase;
-  font-size: 1.25rem;
-  letter-spacing: 0.01em;
-  line-height: 1.15;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: 0.005em;
+  line-height: 1.45;
   color: var(--text);
 }
 .fact-value a { color: var(--primary); }
@@ -1000,11 +1000,11 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 }
 .location-info dd {
   margin: 0;
-  font-family: var(--font-display);
-  text-transform: uppercase;
-  font-size: 1.15rem;
-  line-height: 1.2;
-  letter-spacing: 0.01em;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0.005em;
 }
 .location-map {
   border-radius: var(--r-lg);
@@ -1104,7 +1104,15 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
 }
 
 @media (max-width: 760px) {
-  .header-cta { display: none; }
+  /* Keep the Register CTA visible on phones — just make it compact */
+  .header-cta {
+    display: inline-flex;
+    padding: 8px 12px;
+    font-size: 0.6875rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    flex: none;
+  }
   .menu-toggle { display: inline-flex; }
   .primary-nav {
     position: absolute;
@@ -1136,6 +1144,13 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   .footer-meta { text-align: left; }
   .hero-meta { grid-template-columns: 1fr 1fr; }
   .brand-line-2 { display: none; }
+  /* Keep the brand on one line now that the header CTA stays visible */
+  .brand-line-1 { font-size: 0.95rem; white-space: nowrap; }
+  .brand { gap: 7px; flex: none; }
+  .brand-mark-img { width: 28px; height: 28px; }
+  .header-inner { gap: 8px; height: 64px; }
+  .menu-toggle { flex: none; margin-left: 0; }
+  .primary-nav { top: 64px; }
   .hero-title { font-size: clamp(3rem, 14vw, 5rem); }
 }
 
@@ -1146,3 +1161,71 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   }
   html { scroll-behavior: auto; }
 }
+
+/* Centered inline CTA rows */
+.cta-row-center {
+  justify-content: center;
+  margin: var(--space-7) 0 var(--space-2);
+}
+.cta-band {
+  margin: var(--space-6) 0 var(--space-8);
+  padding: var(--space-5) var(--space-4);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in oklab, var(--primary) 5%, transparent);
+  border-radius: var(--r-md);
+}
+
+/* Persistent floating register CTA */
+.floating-register {
+  position: fixed;
+  right: clamp(14px, 3vw, 28px);
+  bottom: clamp(14px, 3vh, 28px);
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  color: #1a0d04;
+  background: linear-gradient(180deg, #ff9a3c, var(--primary));
+  border: 1px solid color-mix(in oklab, #fff 22%, var(--primary));
+  box-shadow: 0 10px 30px rgba(0,0,0,.45), 0 0 0 4px color-mix(in oklab, var(--primary) 18%, transparent);
+  text-decoration: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity .28s ease, transform .28s ease, visibility .28s ease;
+}
+.floating-register.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.floating-register:hover {
+  filter: brightness(1.06);
+  transform: translateY(-2px);
+}
+.floating-register:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+@media (max-width: 560px) {
+  .floating-register {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%) translateY(12px);
+    padding: 13px 20px;
+  }
+  .floating-register.is-visible { transform: translateX(-50%) translateY(0); }
+  .floating-register:hover { transform: translateX(-50%) translateY(-2px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .floating-register { transition: opacity .01s linear; }
+}
+@media print { .floating-register { display: none; } }
