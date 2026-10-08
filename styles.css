@@ -1176,3 +1176,6 @@ button { font: inherit; cursor: pointer; background: none; border: 0; color: inh
   border-radius: var(--r-md);
 }
 
+
+/* Confirmed 2026 sponsor recognition */
+.confirmed-sponsors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.confirmed-sponsor{margin:0;min-width:0}.confirmed-sponsor img{display:block;width:100%;height:auto;border-radius:12px}.confirmed-sponsor figcaption{padding:12px 0;line-height:1.4}.confirmed-sponsor strong,.confirmed-sponsor span{display:block}.confirmed-sponsor span{font-size:14px;margin-top:4px}@media(min-width:900px){.confirmed-sponsors{grid-template-columns:repeat(4,minmax(0,1fr))}}@media(max-width:420px){.confirmed-sponsors{grid-template-columns:1fr}}
