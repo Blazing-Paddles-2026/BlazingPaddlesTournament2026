@@ -27,17 +27,17 @@ Search and replace these strings in `index.html`:
 | Raffle details      | `sponsor.html` only for prize donations; main page stays general   |
 | TBD copy            | Final bracket start times, division splits                         |
 | Entry fee           | $10 per player                                                     |
-| Registration link   | https://app.fluidpb.com/tournaments/blazing-paddles-pickleball-fundraiser-tournament-2 (FluidPB — live and accepting sign-ups). |
+| Registration link   | https://app.fluidpb.com/tournaments/blazing-paddles-pickleball-fundraiser-tournament-2 (FluidPB — closed; tournament completed Oct 10, 2026). |
 
 JSON-LD `SportsEvent` schema is in the `<head>` — keep `startDate` / `endDate` / `location` in sync with the visible copy.
 
 ## Notes & assumptions
 
-- Public registration is live on FluidPB. All “Register Now” CTAs link to https://app.fluidpb.com/tournaments/blazing-paddles-pickleball-fundraiser-tournament-2. Divisions, entry details, and check-in schedule will be published as they are finalized.
+- Tournament completed Oct 10, 2026. All registration CTAs and links were removed from the public site; former registration page was https://app.fluidpb.com/tournaments/blazing-paddles-pickleball-fundraiser-tournament-2. Divisions, entry details, and check-in schedule will be published as they are finalized.
 - Financial goals from the committee dashboard should not appear on the public tournament page.
 - Sponsor tiers, sponsor-packet details, and raffle-prize donation details belong on `sponsor.html`, not the main public tournament page.
 - Raffle prizes can be donated anytime before the tournament.
-- Entry fee is confirmed at $10 per player. Registration is live at https://app.fluidpb.com/tournaments/blazing-paddles-pickleball-fundraiser-tournament-2.
+- Entry fee is confirmed at $10 per player. Registration (now closed) was at https://app.fluidpb.com/tournaments/blazing-paddles-pickleball-fundraiser-tournament-2.
 - Final bracket start times, division splits, sponsor-packet PDF, and EIN/tax language are still open items; do not invent them.
 - Sponsor page and volunteer CTAs use prefilled `mailto:info@roundrockfirefoundation.org` links where a confirmed public form is not supplied.
 - Sponsor links point to `https://www.roundrockfirefoundation.org/sponsor` (the unified RRFF sponsor page on the main site).
